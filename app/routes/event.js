@@ -16,6 +16,8 @@ function postEvent (req, res) {
     .save(req.body)
     .then((event) => {
       res.json(event)
+      res.append('Content-Location', `/event/${event.id}`)
+      res.sendStatus(201)
     })
 }
 
