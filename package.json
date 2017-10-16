@@ -1,0 +1,24 @@
+{
+  "name": "javascript-tdd",
+  "version": "0.1.0",
+  "private": "true",
+  "description": "A minimal playground for JavaScript experiments",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon lib/index.js --exec babel-node",
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0"
+  }
+}
