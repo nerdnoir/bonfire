@@ -1,10 +1,10 @@
 module.exports = function (wallaby) {
   return {
     files: [
-      'lib/**/*.js'
+      'app/**/*.js'
     ],
     
-    tests: [ 'test/**/*\.specs.js'],
+    tests: [ 'test/app/**/*\.specs.js'],
     
     compilers: {
       '**/*.js': wallaby.compilers.babel()

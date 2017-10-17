@@ -1,16 +1,13 @@
 {
-  "name": "javascript-tdd",
+  "name": "bonfire-events-api",
   "version": "0.1.0",
   "private": "true",
-  "description": "A minimal playground for JavaScript experiments",
+  "description": "Events API for the Bonfire app.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node",
-    "build": "babel lib -d dist",
-    "serve": "node dist/index.js",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register 'test/**/*.js'"
   },
-  "author": "",
+  "author": "David Laribee <david@nerdnoir.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
