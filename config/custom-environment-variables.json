@@ -1,4 +1,4 @@
 {
   "DBHost": "MONGO_DB_URI",
-  "DBCollection": "instructor"
+  "DBCollection": "MONGO_COLLECTION"
 }

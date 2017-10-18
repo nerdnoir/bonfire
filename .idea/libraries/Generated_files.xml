@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/dist/src/start.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/src/start.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/person.spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/start_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/person.spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/start_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/edition_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/person.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/edition.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/person_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/edition_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/person.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/edition.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/person_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/lib/edition_pricing.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/edition_pricing_specs.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/progressive_edition_pricing_specs.js" />
+      <root url="file://$PROJECT_DIR$/dist/wallaby.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/edition_pricing_spec.js" />
+      <root url="file://$PROJECT_DIR$/dist/lib/progressive_edition_pricing.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -39,8 +39,7 @@ class EventRepository {
   }
   
   save (event) {
-    // TODO: You might have to do some mapping here, depending
-    // on the shape of the event object your team created.
+    // TODO: You might have to do some mapping here
     return new Event(event).save((err) => { if (err) return err })
   }
 }

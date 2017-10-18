@@ -1,9 +1,16 @@
 require('chai').should()
 const Event = require('../../../app/model/event')
 
-describe("Events", () => {
-  it("A sample test", () => {
+describe('Events', () => {
+  it('have tickets', () => {
     const subject = new Event()
-    true.should.be.true
+    subject.ticketCount().should.equal(0)
+  })
+})
+
+
+describe('Events', () => {
+  it('data structure or whatever', () => {
+  
   })
 })

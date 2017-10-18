@@ -15,9 +15,9 @@ function postEvent (req, res) {
   repository
     .save(req.body)
     .then((event) => {
-      res.json(event)
       res.append('Content-Location', `/event/${event.id}`)
-      res.sendStatus(201)
+        .status(201)
+        .json(event)
     })
 }
 
