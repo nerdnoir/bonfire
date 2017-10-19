@@ -1,4 +1,5 @@
 let repository = require('../repository/events')
+let event = require('../model/event')
 
 // GET /event route to retrieve all the events.
 function getEvents (req, res) {
@@ -12,13 +13,14 @@ function getEvent (req, res) {
 
 // POST /event to save a new event.
 function postEvent (req, res) {
-  repository
-    .save(req.body)
-    .then((event) => {
-      res.append('Content-Location', `/event/${event.id}`)
-        .status(201)
-        .json(event)
-    })
+  event.createEvent(req.body,  repository.save)
+  // repository
+  //   .save(req.body)
+  //   .then((event) => {
+  //     res.append('Content-Location', `/event/${event.id}`)
+  //       .status(201)
+  //       .json(event)
+  //   })
 }
 
 //export all the functions

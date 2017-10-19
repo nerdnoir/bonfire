@@ -5,10 +5,7 @@ let config = require('config')
 let EventSchema = new mongoose.Schema(
   {
     title: {type: String, required: true},
-    description: {type: String, required: true},
-    organizer: {type: String, required: true},
-    maxAttendees: {type: Number, required: false},
-    createdAt: {type: Date, default: Date.now},
+    city: {type: String, required: true},
   },
   {
     versionKey: false,
