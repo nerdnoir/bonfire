@@ -1,0 +1,30 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Node App" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="server.js" node-parameters="-r babel-register" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="MONGO_DB_URI" value="mongodb://anarchist:hI39z9ufvqFq}Itxx@ds121495.mlab.com:21495/anarchy-workshop" />
+      <env name="MONGO_COLLECTION" value="instructor" />
+    </envs>
+    <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
+      <option name="envVars">
+        <list />
+      </option>
+      <option name="extraHosts">
+        <list />
+      </option>
+      <option name="links">
+        <list />
+      </option>
+      <option name="networkDisabled" value="false" />
+      <option name="networkMode" value="bridge" />
+      <option name="portBindings">
+        <list />
+      </option>
+      <option name="publishAllPorts" value="false" />
+      <option name="version" value="1" />
+      <option name="volumeBindings">
+        <list />
+      </option>
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>
