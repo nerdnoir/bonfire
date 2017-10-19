@@ -1,4 +1,5 @@
 const expect = require('chai').expect
+const sinon = require('sinon')
 const event = require('../../../app/model/event')
 const Event = event.Event
 
@@ -51,11 +52,11 @@ describe('Events', () => {
       expect(subject.isPublished()).to.be.true
     })
     
-    it.skip('success notifies the event listing service', () => {
+    it('success notifies the event listing service', () => {
       const subject = new Event({title: 'meetup', location: 'Atlanta'})
-      let called = false
-      subject.publishEvent({on: new Date(2017, 10, 31)}, new Date(2017, 10, 19), (data) => called = true)
-      expect(called).to.be.true
+      let mockListingService = sinon.spy()
+      subject.publishEvent({on: new Date(2017, 10, 31)}, new Date(2017, 10, 19), mockListingService)
+      expect(mockListingService.called).to.be.true
     })
     
     it('notifying the event listing service sends some basic information', () => {
