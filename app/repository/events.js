@@ -36,7 +36,6 @@ class EventRepository {
   }
   
   save (event) {
-    // TODO: You might have to do some mapping here
     return new Event(event).save((err) => { if (err) return err })
   }
 }
