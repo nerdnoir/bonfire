@@ -4,7 +4,7 @@ let event = require('./model/event')
 // GET /event route to retrieve all the events.
 function getEvents (req, res) {
   repository.all().then((data) => res.json(data))
-}
+
 
 function getEvent (req, res) {
   let eventId = req.params.id
@@ -13,8 +13,8 @@ function getEvent (req, res) {
 
 // POST /event to save a new event.
 function postEvent (req, res) {
-  // TODO: Not quite right
   event.createEvent(req.body)
+    .then(repository.save)
     .then(res.set('Content-Location','TODO: URL').status(201).json(req.body), res.sendStatus(500))
 }
 
