@@ -77,6 +77,14 @@ describe('Events', () => {
     })
   
     it('Cannot publish an event without a location', () => {
+      // arrange
+      let testEvent = {
+        title: 'My Fun Meetup',
+        city: 'Nashville'
+      }
+      // act & assert
+      expect(() => {event.publishEvent(testEvent)}).to.throw('Event has no location.')
+    })
     
     it('an event cannot be published for a past date', () => {
       const subject = new Event({location: 'Starbucks'})
@@ -93,14 +101,18 @@ describe('Events', () => {
       expect(subject.location).to.equal('Nashville Community Center')
     })
     
-      // arrange
-      let testEvent = {
-        title: 'My Fun Meetup',
-        city: 'Nashville'
-      }
-      // act & assert
-      expect(() => {event.publishEvent(testEvent)}).to.throw('Event has no location.')
+  })
+  
+  describe('Email marketing automation integration', () => {
+    
+    it('can publish a list of attendees names and emails to MailChimp', () => {
+      const subject = new Event({title: 'Anarchy Workshop Atlantis'})
+      subject.addAttendee(['Alice', 'Waters', 'alice@waters.net'])
+      subject.addAttendee(['Bob', 'Funkhauser', 'funkmaster@outlook.com'])
+      const mailChimp = sinon.mock({ publishList: function(list, contacts) { }})
+      subject.sendAttendeesTo(mailChimp)
     })
+    
   })
   
 })
