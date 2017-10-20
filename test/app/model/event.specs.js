@@ -78,12 +78,10 @@ describe('Events', () => {
   
     it('Cannot publish an event without a location', () => {
       // arrange
-      let testEvent = {
-        title: 'My Fun Meetup',
-        city: 'Nashville'
-      }
+      const publishEventMessage = { location: null }
+      const subject = new Event({ title: 'My Fun Meetup', city: 'Nashville' })
       // act & assert
-      expect(() => {event.publishEvent(testEvent)}).to.throw('Event has no location.')
+      expect(() => {subject.publishEvent(publishEventMessage)}).to.throw('Location is required.')
     })
     
     it('an event cannot be published for a past date', () => {
