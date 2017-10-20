@@ -13,14 +13,11 @@ function getEvent (req, res) {
 
 // POST /event to save a new event.
 function postEvent (req, res) {
-  event.createEvent(req.body,  repository.save)
-  // repository
-  //   .save(req.body)
-  //   .then((event) => {
-  //     res.append('Content-Location', `/event/${event.id}`)
-  //       .status(201)
-  //       .json(event)
-  //   })
+  event.createEvent(req.body,  repository.save.then(console.log))
+  
+  res.append('Content-Location', "/event/42")
+    .setStatus(201)
+    .json(req.body)
 }
 
 //export all the functions

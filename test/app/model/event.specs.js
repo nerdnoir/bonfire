@@ -8,23 +8,15 @@ describe('Events', () => {
   describe('Creating an event', () => {
     
     it('requires a title', () => {
-      let candidateEvent = {
-        title: 'Developer Anarchy Workshop - Antarctica',
-        city: 'Antarctica'
+      
+      let message = {
+        city: 'Tokyo'
       }
-      let eventCreated = {}
-      let save = (event) => eventCreated = event
-      
-      event.createEvent(candidateEvent, save)
-      
-      expect(eventCreated).to.have.property('title')
-      expect(eventCreated.title).to.equal('Developer Anarchy Workshop - Antarctica')
-    })
-    
-    it('throws an exception if title is not provided', () => {
-      let candidateEvent = {title: null}
-      expect(() => {event.createEvent(candidateEvent)})
-        .to.throw('Title is required')
+  
+      return event.createEvent(message)
+        .catch((ex) => {
+          expect(ex).to.equal('Title is required.')
+        })
     })
     
     it('title cannot exceed 60 characters', () => {
@@ -32,14 +24,19 @@ describe('Events', () => {
         title: 'Developer Anarchy Workshop - The Former Yugoslav Republic of Macedonia',
         city: 'The Former Yugoslav Republic of Macedonia'
       }
-      expect(() => {event.createEvent(candidateEvent)}).to.throw('Title is too long.')
+      return event.createEvent(candidateEvent)
+      .catch((err) => expect(err).to.equal('Title is too long.'))
     })
     
     it('requires a city', () => {
-      let candidateEvent = {
+      let message = {
         title: 'Developer Anarchy Workshop - Tokyo'
       }
-      expect(() => {event.createEvent(candidateEvent)}).to.throw('City is required.')
+      
+      return event.createEvent(message)
+        .catch((ex) => {
+          expect(ex).to.equal('City is required.')
+        })
     })
     
   })
@@ -59,7 +56,7 @@ describe('Events', () => {
       expect(mockListingService.called).to.be.true
     })
     
-    it('notifying the event listing service sends some basic information', () => {
+    it('notifying the event listing service (CONTRACT TBD)', () => {
       const subject = new Event({title: 'meetup', location: 'Atlanta'})
       let called = false
       subject.publishEvent({on: new Date(2017, 10, 31)}, new Date(2017, 10, 19), (data) => called = true)

@@ -1,11 +1,19 @@
-function createEvent (candidateEvent, save = (domainEvent) => {}) {
-  if (!candidateEvent.title) throw 'Title is required.'
-  if (candidateEvent.title.length > 60) throw 'Title is too long.'
-  if (!candidateEvent.city) throw 'City is required.'
-  const eventCreated = {
-    title: candidateEvent.title
-  }
-  save(eventCreated)
+function createEvent (candidateEvent) {
+  return new Promise((resolve, reject) => {
+    try {
+      if (!candidateEvent.title) throw 'Title is required.'
+      if (candidateEvent.title.length > 60) throw 'Title is too long.'
+      if (!candidateEvent.city) throw 'City is required.'
+      const eventCreated = {
+        title: candidateEvent.title,
+        city: candidateEvent.city
+      }
+      resolve(new Event(eventCreated))
+    } catch (err) {
+      // STABILIZE: Domain-specific exceptions at boundary.
+      reject(err)
+    }
+  })
 }
 
 class Event {

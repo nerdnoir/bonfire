@@ -36,7 +36,9 @@ class EventRepository {
   }
   
   save (event) {
-    return new Event(event).save((err) => { if (err) return err })
+    let executor = (resolve, reject)
+    const promise = new Promise(executor)
+    return new
   }
 }
 
