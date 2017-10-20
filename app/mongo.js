@@ -35,10 +35,9 @@ class EventRepository {
     })
   }
   
+  // ?
   save (event) {
-    let executor = (resolve, reject)
-    const promise = new Promise(executor)
-    return new
+    return new Event(event).save()
   }
 }
 

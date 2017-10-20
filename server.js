@@ -3,7 +3,7 @@ let app = express()
 let mongoose = require('mongoose')
 let bodyParser = require('body-parser')
 let port = 8080
-let event = require('./app/routes/event')
+let event = require('./app/routes')
 let config = require('config') //we load the db location from the JSON files
 
 // Some default DB options to account for our slowish DB service.

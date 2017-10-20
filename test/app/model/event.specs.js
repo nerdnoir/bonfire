@@ -20,11 +20,11 @@ describe('Events', () => {
     })
     
     it('title cannot exceed 60 characters', () => {
-      let candidateEvent = {
+      let message = {
         title: 'Developer Anarchy Workshop - The Former Yugoslav Republic of Macedonia',
-        city: 'The Former Yugoslav Republic of Macedonia'
+        city: 'Skopje'
       }
-      return event.createEvent(candidateEvent)
+      return event.createEvent(message)
       .catch((err) => expect(err).to.equal('Title is too long.'))
     })
     
@@ -49,11 +49,19 @@ describe('Events', () => {
       expect(subject.isPublished()).to.be.true
     })
     
-    it('success notifies the event listing service', () => {
+    it('MOCK: success notifies the event listing service', () => {
       const subject = new Event({title: 'meetup', location: 'Atlanta'})
       let mockListingService = sinon.spy()
       subject.publishEvent({on: new Date(2017, 10, 31)}, new Date(2017, 10, 19), mockListingService)
       expect(mockListingService.called).to.be.true
+    })
+  
+    it('FAKE: success notifies the event listing service', () => {
+      const subject = new Event({title: 'meetup', location: 'Atlanta'})
+      let called = false
+      let fakeListingService = (data) => called = true
+      subject.publishEvent({on: new Date(2017, 10, 31)}, new Date(2017, 10, 19), fakeListingService)
+      expect(called).to.be.true
     })
     
     it('notifying the event listing service (CONTRACT TBD)', () => {
