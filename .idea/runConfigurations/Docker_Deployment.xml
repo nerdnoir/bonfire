@@ -19,7 +19,7 @@
           </list>
         </option>
         <option name="envVarsExpanded" value="true" />
-        <option name="imageTag" value="" />
+        <option name="imageTag" value="bonfire-event-api" />
         <option name="portBindings">
           <list>
             <DockerPortBindingImpl>
