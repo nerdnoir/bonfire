@@ -33,16 +33,14 @@ class Event {
   isPublished () {
     return this.published
   }
-}
-
-function publishEvent (command, save = (event) => {}, getEvent = () => { return {} }) {
-  const event = getEvent()
   
-  if (!event.location) {
-    if (!command.location) throw 'Event has no location.'
+  addAttendee (attendee) {
+  
   }
   
-  save({location: 'Nashville Community Center'})
+  sendAttendeesTo (mailChimp) {
+    mailChimp.publish(null, null)
+  }
 }
 
-module.exports = {createEvent, publishEvent, Event}
+module.exports = {createEvent, Event}

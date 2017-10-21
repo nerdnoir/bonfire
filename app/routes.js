@@ -4,6 +4,7 @@ let event = require('./model/event')
 // GET /event route to retrieve all the events.
 function getEvents (req, res) {
   repository.all().then((data) => res.json(data))
+}
 
 
 function getEvent (req, res) {

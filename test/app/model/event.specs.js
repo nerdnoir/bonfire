@@ -104,12 +104,23 @@ describe('Events', () => {
   describe('Email marketing automation integration', () => {
     
     it('can publish a list of attendees names and emails to MailChimp', () => {
+      
       const subject = new Event({title: 'Anarchy Workshop Atlantis'})
       subject.addAttendee(['Alice', 'Waters', 'alice@waters.net'])
       subject.addAttendee(['Bob', 'Funkhauser', 'funkmaster@outlook.com'])
-      const mailChimp = sinon.mock({ publishList: function(list, contacts) { }})
+      
+      let called = false
+      const mailChimp = { publish: (list, addresses) => called = true }
       subject.sendAttendeesTo(mailChimp)
+      
+      expect(called).to.be.true
     })
+    
+    class MailChimpIntegration {
+      publish(destinationList, address) {
+        throw "NOPE"
+      }
+    }
     
   })
   
